@@ -18,7 +18,7 @@ This module will creates an EC2 instance running Velociraptor.
 | admin_username  | string       | Admin username                                                                                                            |
 | admin_email     | string       | Email admin (to receive all the information)                                                                              |
 | volume_size     | string       | (Optional) Volume size for the EC2 Instance (default: 8GiB) See: https://docs.velociraptor.app/docs/deployment/resources/ |
-| instance_type   | string       | (Optional) Instance type (default: t2.micro) See: https://docs.velociraptor.app/docs/deployment/resources/                |
+| instance_type   | number       | (Optional) Instance type (default: t2.micro) See: https://docs.velociraptor.app/docs/deployment/resources/                |
 
 # Example
 
