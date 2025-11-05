@@ -66,7 +66,7 @@ chmod +x velociraptor
 
 echo "Server binary generation"
 
-./velociraptor --config $CONFIG_SERVER_FILE_DEST debian server --binary velociraptor
+./velociraptor --config $CONFIG_SERVER_FILE_DEST debian server --binary /velociraptor/velociraptor
 
 # +============================================+
 # | Client Configuration and binary generation |
@@ -88,7 +88,7 @@ echo "Windows 32 bits"
 # |      Server service installation           |
 # +============================================+
 
-dpkg -i velociraptor_*.deb
+dpkg -i velociraptor-server-*.deb
 
 service velociraptor_server restart
 

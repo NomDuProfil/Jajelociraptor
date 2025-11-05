@@ -41,6 +41,6 @@ resource "aws_instance" "jajelociraptor_instance" {
   }
 
   lifecycle {
-    ignore_changes = [ami]
+    ignore_changes = [ami, user_data]
   }
 }
