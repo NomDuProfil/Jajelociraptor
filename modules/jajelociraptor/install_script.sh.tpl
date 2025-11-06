@@ -42,15 +42,15 @@ cd velociraptor
 
 echo "Download Linux package 64 bits"
 
-curl -s https://api.github.com/repos/Velocidex/velociraptor/releases/latest | grep "velociraptor-.*-linux-amd64.$" | cut -d : -f 2,3 | tr -d \" | wget -O velociraptor --show-progress -qi -
+curl -s https://api.github.com/repos/Velocidex/velociraptor/releases | jq -r '.[] | .assets[] | select(.name | test("velociraptor-.*linux-amd64$")) | .browser_download_url' | sort -V | tail -n1 | wget -O velociraptor --show-progress -qi -
 
 echo "Download Windows MSI 64 bits"
 
-curl -s https://api.github.com/repos/Velocidex/velociraptor/releases/latest | grep "velociraptor-.*-windows-amd64.msi.$" | cut -d : -f 2,3 | tr -d \" | wget -O velociraptor_win_64.msi --show-progress -qi -
+curl -s https://api.github.com/repos/Velocidex/velociraptor/releases | jq -r '.[] | .assets[] | select(.name | test("velociraptor-.*-windows-amd64.msi$")) | .browser_download_url' | sort -V | tail -n1 | wget -O velociraptor_win_64.msi --show-progress -qi -
 
 echo "Download Windows MSI 32 bits"
 
-curl -s https://api.github.com/repos/Velocidex/velociraptor/releases/latest | grep "velociraptor-.*-windows-386.msi.$" | cut -d : -f 2,3 | tr -d \" | wget -O velociraptor_win_32.msi --show-progress -qi -
+curl -s https://api.github.com/repos/Velocidex/velociraptor/releases | jq -r '.[] | .assets[] | select(.name | test("velociraptor-.*-windows-386.msi$")) | .browser_download_url' | sort -V | tail -n1 | wget -O velociraptor_win_64.msi --show-progress -qi -
 
 # +============================================+
 # | Server Configuration and binary generation |
