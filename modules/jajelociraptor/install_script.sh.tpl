@@ -12,7 +12,7 @@
 
 apt update
 apt upgrade -y
-apt install zip unzip -y
+apt install zip unzip jq -y
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 ./aws/install
@@ -50,7 +50,7 @@ curl -s https://api.github.com/repos/Velocidex/velociraptor/releases | jq -r '.[
 
 echo "Download Windows MSI 32 bits"
 
-curl -s https://api.github.com/repos/Velocidex/velociraptor/releases | jq -r '.[] | .assets[] | select(.name | test("velociraptor-.*-windows-386.msi$")) | .browser_download_url' | sort -V | tail -n1 | wget -O velociraptor_win_64.msi --show-progress -qi -
+curl -s https://api.github.com/repos/Velocidex/velociraptor/releases | jq -r '.[] | .assets[] | select(.name | test("velociraptor-.*-windows-386.msi$")) | .browser_download_url' | sort -V | tail -n1 | wget -O velociraptor_win_32.msi --show-progress -qi -
 
 # +============================================+
 # | Server Configuration and binary generation |
